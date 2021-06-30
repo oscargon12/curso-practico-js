@@ -31,7 +31,32 @@ let trianguloPerimetro = lado1 + lado2 + lado3;
 
 console.log(`El perimetro del triangulo es ${trianguloPerimetro}`)
 
-let areaTriangulo = (lado3 * trianguloAltura) / 2
-console.log(`El área del triangulo es ${areaTriangulo}`);
+let areaTriangulo = (lado3 * trianguloAltura) / 2;
+console.log(`El área del triangulo es ${areaTriangulo} cm^2` );
+
+console.groupEnd();
+
+
+// Circulos
+
+console.group('Círculos');
+// Radio
+let radioCirculo = 4;
+console.log(`El radio del circulo es ${radioCirculo} cm`)
+
+// Diametro
+let diametroCirculo = radioCirculo * 2;
+console.log(`El diametro del circulo es ${diametroCirculo} cm`)
+
+// PI
+let PI = Math.PI;
+
+// Circunferencia
+let perimetroCirculo = diametroCirculo * PI;
+console.log(`El perimetro del circulo es ${perimetroCirculo} cm`)
+
+// Area
+let areaCirculo = (radioCirculo * radioCirculo) * PI;
+console.log(`El area del circulo es ${areaCirculo} cm^2`)
 
 console.groupEnd();
