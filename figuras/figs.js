@@ -17,7 +17,7 @@ function areaCuadrado (lado){
 }
 console.groupEnd();
 
-// Triangulo
+// == Triangulo ==
 
 console.group('Triangulos')
 
@@ -32,7 +32,7 @@ function areaTriangulo(base, altura){
 console.groupEnd();
 
 
-// Circulos
+//== Circulos ==
 
 console.group('Círculos');
 // Radio
@@ -60,3 +60,25 @@ function areaCirculo (radio) {
  return (radio * radio) * PI;
 }
 console.groupEnd();
+
+
+// === Conectando con el html ===
+const calcularPerimetroCuadrado = () => {
+    const userInput = document.querySelector('#InputCuadrado'); // Capturo el elemento html input
+    const userValue = userInput.value; // Capturo el valor que ingresa el usuario
+
+    const perimetro = perimetroCuadrado(userValue); //El valor a mostrar se saca aprovechando la función perimetroCuadarado() de más arriba
+
+    alert(perimetro); // Se muestra el valor del perimetro
+}
+
+// Repito todo con el área
+const calcularAreaCuadrado = () => {
+    const userInput = document.querySelector('#InputCuadrado'); 
+    const userValue = userInput.value;
+
+    const area = areaCuadrado(userValue); 
+    alert(area); 
+}
+
+// Input triangulos
