@@ -62,7 +62,9 @@ function areaCirculo (radio) {
 console.groupEnd();
 
 
-// === Conectando con el html ===
+// ********* Conectando con el html ********* //
+
+// == Cuadrado ==
 const calcularPerimetroCuadrado = () => {
     const userInput = document.querySelector('#InputCuadrado'); // Capturo el elemento html input
     const userValue = userInput.value; // Capturo el valor que ingresa el usuario
@@ -82,3 +84,52 @@ const calcularAreaCuadrado = () => {
 }
 
 // Input triangulos
+const calcularPerimetroTriangulo = () =>{
+    const userInput1 = document.querySelector('#InputLado1');
+    const userValue1 =  parseInt(userInput1.value);
+
+    const userInput2 = document.querySelector('#InputLado2');
+    const userValue2 = parseInt(userInput2.value);
+
+    const inputBase = document.querySelector('#InputBase');
+    const userBase = parseInt(inputBase.value);
+
+    const perimetroTri = perimetroTriangulo(userValue1, userValue2, userBase);
+
+    alert(perimetroTri);
+}
+
+// Area triagulo
+const calcularAreaTriangulo = () =>{
+    const inputBase = document.querySelector('#InputBase');
+    const userBase = parseInt(inputBase.value);
+
+    const inputHeight = document.querySelector('#InputHeight');
+    const userHeight = parseInt(inputHeight.value);
+
+    const areaTri = areaTriangulo(userBase, userHeight)
+
+    alert(areaTri);
+}
+
+
+// === Calcular circulo ===
+
+// Perimetro
+const calcularPerimetroCirculo = () =>{
+    const inputRadio = document.querySelector('#InputCirculo'); // Capturo elemento html input
+    const userRadio = parseInt(inputRadio.value); // capturo valor ingresado en ese elemento html
+
+    const perimetroCir = perimetroCirculo(userRadio); // Uso ese valor como argumento en la función de calcular
+
+    alert(perimetroCir); // Imprimo el valor de la funcion calcular con ese argumento
+}
+
+const calcularAreaCirculo = () =>{
+    const inputRadio = document.querySelector('#InputCirculo');
+    const userRadio = parseInt(inputRadio.value);
+
+    const areaCir = areaCirculo(userRadio);
+
+    alert(areaCir);
+}
