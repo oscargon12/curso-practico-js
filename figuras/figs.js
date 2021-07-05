@@ -29,6 +29,10 @@ function areaTriangulo(base, altura){
     return (base * altura) / 2;
 }
 
+function alturaIsosceles(lado1, lado2, base){
+    return Math.sqrt((lado1 * lado2) - ((base * base) / 4));
+}
+
 console.groupEnd();
 
 
@@ -132,4 +136,23 @@ const calcularAreaCirculo = () =>{
     const areaCir = areaCirculo(userRadio);
 
     alert(areaCir);
+}
+
+
+// === Triangulo isosceles ===
+const calcularAlturaTriangulo = () =>{ // Ese nombre de función, debe ir en el onClick  
+    const ladoA = document.querySelector('#InputLado1');
+    const ladoAValue = parseInt(ladoA.value);
+
+    const ladoB = document.querySelector('#InputLado2');
+    const ladoBValue = parseInt(ladoB.value);
+
+    const base = document.querySelector('#InputBase');
+    const baseValue = parseInt(base.value);
+
+    const alturaIsos = alturaIsosceles(ladoAValue, ladoBValue, baseValue);
+
+    (ladoAValue === ladoBValue)
+    ? alert(`La altura del triangulo es ${alturaIsos}`)
+    : alert('Los lados del triángulo isosceles deben ser iguales')
 }
