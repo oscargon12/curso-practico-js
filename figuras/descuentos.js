@@ -15,47 +15,38 @@ function calcularPrecioConDescuento(precio, descuento){
 
 calcularPrecioConDescuento(1500, 50);
 
+/* Cupones */
+const coupons = [
+    "JuanDC_es_Batman",
+    "pero_no_le_digas_a_nadie",
+    "es_un_secreto",
+];
 
-/* const coupons = [
-    {
-        name: cupon001,
-        discount: 15,
-    },
-    {
-        name: cupon002,
-        discount: 30,
-    },
-    {
-        name: cupon003,
-        discount: 25,
-    },
-]
+function onClickButtonPriceDiscount() {
+  const inputPrice = document.getElementById("InputPrice");
+  const priceValue = inputPrice.value;
+  
+  const inputCoupon = document.getElementById("InputCoupon");
+  const couponValue = inputCoupon.value;
 
+  const priceResult = document.getElementById("priceResult");
 
-const isCuoponValueValid = function (cuopon) {
-    return coupon.name === cuoponValue;
-} // Se crea una variable [isUserCouponValueValid] con una función que valide si su parámetro 
-  // [coupon] es igual a nuestra variable [userCouponValue]
-
-  //  Y esta variable se envía como parámetro a la función array.find()
-  const userCuopon = cuopons.find(isCuoponValueValid)
-
-   */
-
-
-const calcularDescuento = () =>{
-    const InputPrice = document.querySelector('#InputPrice'); // Capturo el elemento del DOM input
-    const userPrice = parseInt(InputPrice.value); // Asigno ese valor capturado a una variable
-    
-    const InputDiscount = document.querySelector('#InputDiscount');
-    const userDiscount = parseInt(InputDiscount.value);
-
-    /* const showDiscount = document.querySelector('#priceResult'); */
-
-    const domDiscount = calcularPrecioConDescuento(userPrice, userDiscount); // Utilizo los valores capturados del DOM como argumentos de la variable
-    // Asigno la función de calcular a una variable
-
-    priceResult.innerText = `El precio final es $ ${domDiscount}` 
-    //Inserto el precio final en el html
+  if (!coupons.includes(couponValue)) {
+   priceResult.innerText = `Tu cupón no es válido`
+} else if (couponValue === "JuanDC_es_Batman") {
+   descuento = 15;
+} else if (couponValue === "pero_no_le_digas_a_nadie") {
+   descuento = 30;
+} else if (couponValue === "es_un_secreto") {
+   descuento = 25;
 }
 
+
+  const precioConDescuento = calcularPrecioConDescuento(priceValue, descuento);
+
+  console.log(`El precio con escuento es $ ${precioConDescuento}`);
+
+  
+  priceResult.innerText = `Tu descuento es del ${descuento}%, El precio final es ${precioConDescuento}`
+
+}
