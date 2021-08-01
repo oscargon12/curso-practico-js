@@ -23,15 +23,15 @@ const coupons = [
 ];
 
 function onClickButtonPriceDiscount() {
-  const inputPrice = document.getElementById("InputPrice");
+  const inputPrice = document.getElementById("InputPrice"); //Capturo el precio
   const priceValue = inputPrice.value;
   
-  const inputCoupon = document.getElementById("InputCoupon");
+  const inputCoupon = document.getElementById("InputCoupon"); // Capturo el cupón de descuento
   const couponValue = inputCoupon.value;
 
-  const priceResult = document.getElementById("priceResult");
+  const priceResult = document.getElementById("priceResult"); // Donde imprimo el descuento
 
-  if (!coupons.includes(couponValue)) {
+  if (!coupons.includes(couponValue)) { // If con los cupones de descuento
    priceResult.innerText = `Tu cupón no es válido`
 } else if (couponValue === "JuanDC_es_Batman") {
    descuento = 15;
@@ -40,7 +40,6 @@ function onClickButtonPriceDiscount() {
 } else if (couponValue === "es_un_secreto") {
    descuento = 25;
 }
-
 
   const precioConDescuento = calcularPrecioConDescuento(priceValue, descuento);
 
