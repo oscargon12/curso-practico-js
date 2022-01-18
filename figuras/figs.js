@@ -4,7 +4,7 @@ console.group('Cuadrado');
 // const ladoCuadrado = 5;
 // console.log(`Cada lado del cuadrado mide ${ladoCuadrado} centímetros`);
 
-function perimetroCuadrado (lado){
+function perimetroCuadrado (lado){ //🔸 Se usará con la función que conecta con el html
     return lado * 4;
 } 
 
@@ -54,9 +54,9 @@ let PI = Math.PI;
 
 // Circunferencia
 function perimetroCirculo (radio){
-    const diametro = diametroCirculo(radio) // Para calcular elperimetro, debo llamar la función diametroCirculo
-
-    return diametro * PI;
+    const diametro = diametroCirculo(radio) // Para calcular el perimetro, debo llamar la función diametroCirculo
+                                            // diametro es igual a la función diametroCirculo(radio)
+    return diametro * PI; 
 } 
 
 // Area
@@ -73,7 +73,7 @@ const calcularPerimetroCuadrado = () => {
     const userInput = document.querySelector('#InputCuadrado'); // Capturo el elemento html input
     const userValue = userInput.value; // Capturo el valor que ingresa el usuario
 
-    const perimetro = perimetroCuadrado(userValue); //El valor a mostrar se saca aprovechando la función perimetroCuadarado() de más arriba
+    const perimetro = perimetroCuadrado(userValue); //🔸 El valor a mostrar se saca aprovechando la función perimetroCuadarado() de más arriba
 
     alert(perimetro); // Se muestra el valor del perimetro
 }
