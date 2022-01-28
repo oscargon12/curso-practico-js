@@ -11,5 +11,5 @@ const listProm = (list1) => {
     })
 
     let promResult = sumResult / list1.length; 
-    console.log(promResult)
+    return promResult
 }
