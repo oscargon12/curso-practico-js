@@ -4,34 +4,25 @@
 3. Creo una función reusable, para saber si el número de salarios es par
 4. Creo una función reusable que calcules promedios (metodo reduce)
 5. Creo la función principal que cacula la mediana de salarios 
-
 */
-const salariosCol = colombia.map((personita) =>{
-    return personita.salary //Crea un nuevo array (salariosCol) con solo salarios
-});
 
-//Sorting salaries
-const salariosColSorted = salariosCol.sort(
-    function (salaryA, salaryB){
-        return salaryA - salaryB;
-    }
-)
+// TODO Funciones helpers: No son parte de la logica del negocio, pero se necesitan para los calculos
 
-//Calculando la mediana
 const isPar = (numerito) => {
     return numerito % 2 === 0; // If(numerito % 2 === 0;)
 }
 
-//🔹Función 1: calcula promedios, servirá si el array tiene un numero de elementos par
+//Función: calcula promedios, servirá si el array tiene un numero de elementos par
 const calcProm = (list1) => { //Reduce va sumando acumulativamente los elementos del array
     const sumResult = list1.reduce((addedValue = 0, newValue) => { // Si no hay nada, el acumulado es 0
         return addedValue + newValue;
     })
 
-    let promResult = sumResult / list1.length; 
+    const promResult = sumResult / list1.length; 
     return promResult
 }
 
+//Calculadora de medianas🔹
 const medianaSalarios = (lista) => {
     const mitad = parseInt(lista.length / 2);
 
@@ -47,4 +38,32 @@ const medianaSalarios = (lista) => {
     }
 }
 
-console.log(medianaSalarios(salariosColSorted));
+//Mediana General
+const salariosCol = colombia.map((personita) =>{
+    return personita.salary //Crea un nuevo array (salariosCol) con solo salarios
+});                         // output [500, 400, 700, 400, 500, ...]
+
+//Sorting salaries
+const salariosColSorted = salariosCol.sort( //ordena el array salariosCol
+    function (salaryA, salaryB){            // output [400, 400, 400, 500, 500, ...]    
+        return salaryA - salaryB;
+    }
+)
+
+//🔹 Reutilizo la calculadora de medianas para dar valor al medianaGeneralCol
+const medianaGeneralCol = medianaSalarios(salariosColSorted);
+
+//Mediana del Top 10%
+const spliceStart = (salariosColSorted.length * 90) / 100; //Donde empieza a cortar el cuchillo
+const spliceCount = salariosColSorted.length - spliceStart; //Hasta donde corta el cuchillo
+
+const salariosColTop10 = salariosColSorted.splice(
+    spliceStart, spliceCount
+); 
+
+const medianaTop10Col = medianaSalarios(salariosColTop10)
+
+console.log({
+    medianaGeneralCol,
+    medianaTop10Col
+});
